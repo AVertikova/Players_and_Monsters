@@ -1,3 +1,4 @@
 # HxH_Players_and_Monsters
-by Anna Vertiova (tg: @Larenlaru)
+by Anna Vertikova (tg: @Larenlaru)
+
 Test task for Heads&amp;Hands internship
