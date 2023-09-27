@@ -6,3 +6,12 @@
 //
 
 import Foundation
+import UIKit
+
+protocol DisplayLogic: AnyObject {
+    
+}
+
+class GameViewController: UIViewController, DisplayLogic {
+    
+}

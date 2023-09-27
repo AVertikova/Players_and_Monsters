@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+class Skeleton: Monster {
+    convenience init() {
+        self.init(name: "Skeleton", attack: 10, defense: 10, maxHealth: 50, damage: 5)
+    }
+}
+

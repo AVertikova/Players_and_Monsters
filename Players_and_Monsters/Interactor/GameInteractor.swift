@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+protocol InteractionLogic {
+    
+}
+
+class GameInteractor: InteractionLogic {
+    
+}

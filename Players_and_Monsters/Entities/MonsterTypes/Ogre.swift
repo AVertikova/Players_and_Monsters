@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class Ogre: Monster {
+    convenience init() {
+        self.init(name: "Ogre", attack: 30, defense: 30, maxHealth: 100, damage: 20)
+    }
+}
+
+
