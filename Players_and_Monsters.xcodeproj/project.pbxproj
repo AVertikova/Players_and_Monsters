@@ -10,13 +10,13 @@
 		EB3E68872AC412C900E2301D /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E68862AC412C900E2301D /* GameInteractor.swift */; };
 		EB3E68892AC4132300E2301D /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E68882AC4132300E2301D /* GamePresenter.swift */; };
 		EB3E688C2AC4137C00E2301D /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E688B2AC4137C00E2301D /* GameView.swift */; };
-		EB3E688E2AC413DA00E2301D /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E688D2AC413DA00E2301D /* Creature.swift */; };
+		EB3E688E2AC413DA00E2301D /* CreatureProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E688D2AC413DA00E2301D /* CreatureProtocol.swift */; };
 		EB3E68902AC413E900E2301D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E688F2AC413E900E2301D /* Player.swift */; };
 		EB3E68922AC4140400E2301D /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E68912AC4140400E2301D /* Monster.swift */; };
 		EB3E68942AC4141F00E2301D /* GameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E68932AC4141F00E2301D /* GameRouter.swift */; };
 		EB3E68962AC417D700E2301D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E68952AC417D700E2301D /* Game.swift */; };
 		EB3E68992AC44A6D00E2301D /* Skeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E68982AC44A6D00E2301D /* Skeleton.swift */; };
-		EB3E689B2AC462D100E2301D /* SabreToothedTiger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E689A2AC462D100E2301D /* SabreToothedTiger.swift */; };
+		EB3E689B2AC462D100E2301D /* SabreToothedKitten.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E689A2AC462D100E2301D /* SabreToothedKitten.swift */; };
 		EB3E689D2AC4639300E2301D /* Ogre.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E689C2AC4639300E2301D /* Ogre.swift */; };
 		EBA289882AC3FB60001FA5F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA289872AC3FB60001FA5F8 /* AppDelegate.swift */; };
 		EBA2898A2AC3FB60001FA5F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA289892AC3FB60001FA5F8 /* SceneDelegate.swift */; };
@@ -30,13 +30,13 @@
 		EB3E68862AC412C900E2301D /* GameInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInteractor.swift; sourceTree = "<group>"; };
 		EB3E68882AC4132300E2301D /* GamePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
 		EB3E688B2AC4137C00E2301D /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		EB3E688D2AC413DA00E2301D /* Creature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
+		EB3E688D2AC413DA00E2301D /* CreatureProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureProtocol.swift; sourceTree = "<group>"; };
 		EB3E688F2AC413E900E2301D /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		EB3E68912AC4140400E2301D /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		EB3E68932AC4141F00E2301D /* GameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRouter.swift; sourceTree = "<group>"; };
 		EB3E68952AC417D700E2301D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		EB3E68982AC44A6D00E2301D /* Skeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skeleton.swift; sourceTree = "<group>"; };
-		EB3E689A2AC462D100E2301D /* SabreToothedTiger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SabreToothedTiger.swift; sourceTree = "<group>"; };
+		EB3E689A2AC462D100E2301D /* SabreToothedKitten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SabreToothedKitten.swift; sourceTree = "<group>"; };
 		EB3E689C2AC4639300E2301D /* Ogre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ogre.swift; sourceTree = "<group>"; };
 		EBA289842AC3FB60001FA5F8 /* Players_and_Monsters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Players_and_Monsters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBA289872AC3FB60001FA5F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				EB3E68972AC44A1400E2301D /* MonsterTypes */,
-				EB3E688D2AC413DA00E2301D /* Creature.swift */,
+				EB3E688D2AC413DA00E2301D /* CreatureProtocol.swift */,
 				EB3E688F2AC413E900E2301D /* Player.swift */,
 				EB3E68912AC4140400E2301D /* Monster.swift */,
 				EB3E68952AC417D700E2301D /* Game.swift */,
@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				EB3E68982AC44A6D00E2301D /* Skeleton.swift */,
-				EB3E689A2AC462D100E2301D /* SabreToothedTiger.swift */,
+				EB3E689A2AC462D100E2301D /* SabreToothedKitten.swift */,
 				EB3E689C2AC4639300E2301D /* Ogre.swift */,
 			);
 			path = MonsterTypes;
@@ -221,10 +221,10 @@
 			files = (
 				EB3E68942AC4141F00E2301D /* GameRouter.swift in Sources */,
 				EB3E68872AC412C900E2301D /* GameInteractor.swift in Sources */,
-				EB3E689B2AC462D100E2301D /* SabreToothedTiger.swift in Sources */,
+				EB3E689B2AC462D100E2301D /* SabreToothedKitten.swift in Sources */,
 				EBA2898C2AC3FB60001FA5F8 /* ViewController.swift in Sources */,
 				EBA289882AC3FB60001FA5F8 /* AppDelegate.swift in Sources */,
-				EB3E688E2AC413DA00E2301D /* Creature.swift in Sources */,
+				EB3E688E2AC413DA00E2301D /* CreatureProtocol.swift in Sources */,
 				EB3E68902AC413E900E2301D /* Player.swift in Sources */,
 				EB3E68992AC44A6D00E2301D /* Skeleton.swift in Sources */,
 				EB3E68962AC417D700E2301D /* Game.swift in Sources */,

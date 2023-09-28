@@ -22,4 +22,7 @@ class Game {
         
     }
     
+    func attack(attacker: Creature, defender: Creature, with result: Result<[Monster], Error>) {
+        
+    }
 }

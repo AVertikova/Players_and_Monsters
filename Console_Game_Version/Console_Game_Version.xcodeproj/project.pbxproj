@@ -1,0 +1,338 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EB3E68E12AC57AF200E2301D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E68E02AC57AF200E2301D /* main.swift */; };
+		EB3E68EA2AC57B3000E2301D /* CreatureProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E68E92AC57B3000E2301D /* CreatureProtocol.swift */; };
+		EB3E68EC2AC57B4400E2301D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E68EB2AC57B4400E2301D /* Player.swift */; };
+		EB3E68EE2AC57B4D00E2301D /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E68ED2AC57B4D00E2301D /* Monster.swift */; };
+		EB3E68F02AC57B7A00E2301D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E68EF2AC57B7A00E2301D /* Game.swift */; };
+		EB3E68F22AC57B8A00E2301D /* Skeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E68F12AC57B8A00E2301D /* Skeleton.swift */; };
+		EB3E68F42AC57B9300E2301D /* Ogre.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E68F32AC57B9300E2301D /* Ogre.swift */; };
+		EB3E68F62AC57B9F00E2301D /* SabreTotthedKitten.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3E68F52AC57B9F00E2301D /* SabreTotthedKitten.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EB3E68DB2AC57AF200E2301D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		EB3E68DD2AC57AF200E2301D /* Console_Game_Version */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Console_Game_Version; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB3E68E02AC57AF200E2301D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		EB3E68E92AC57B3000E2301D /* CreatureProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureProtocol.swift; sourceTree = "<group>"; };
+		EB3E68EB2AC57B4400E2301D /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		EB3E68ED2AC57B4D00E2301D /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
+		EB3E68EF2AC57B7A00E2301D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		EB3E68F12AC57B8A00E2301D /* Skeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skeleton.swift; sourceTree = "<group>"; };
+		EB3E68F32AC57B9300E2301D /* Ogre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ogre.swift; sourceTree = "<group>"; };
+		EB3E68F52AC57B9F00E2301D /* SabreTotthedKitten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SabreTotthedKitten.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB3E68DA2AC57AF200E2301D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EB3E68D42AC57AF100E2301D = {
+			isa = PBXGroup;
+			children = (
+				EB3E68DF2AC57AF200E2301D /* Console_Game_Version */,
+				EB3E68DE2AC57AF200E2301D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EB3E68DE2AC57AF200E2301D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB3E68DD2AC57AF200E2301D /* Console_Game_Version */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB3E68DF2AC57AF200E2301D /* Console_Game_Version */ = {
+			isa = PBXGroup;
+			children = (
+				EB3E68E72AC57B0C00E2301D /* Entities */,
+				EB3E68E02AC57AF200E2301D /* main.swift */,
+			);
+			path = Console_Game_Version;
+			sourceTree = "<group>";
+		};
+		EB3E68E72AC57B0C00E2301D /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				EB3E68E92AC57B3000E2301D /* CreatureProtocol.swift */,
+				EB3E68EB2AC57B4400E2301D /* Player.swift */,
+				EB3E68ED2AC57B4D00E2301D /* Monster.swift */,
+				EB3E68EF2AC57B7A00E2301D /* Game.swift */,
+				EB3E68E82AC57B1800E2301D /* MonsterTypes */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		EB3E68E82AC57B1800E2301D /* MonsterTypes */ = {
+			isa = PBXGroup;
+			children = (
+				EB3E68F12AC57B8A00E2301D /* Skeleton.swift */,
+				EB3E68F32AC57B9300E2301D /* Ogre.swift */,
+				EB3E68F52AC57B9F00E2301D /* SabreTotthedKitten.swift */,
+			);
+			path = MonsterTypes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB3E68DC2AC57AF200E2301D /* Console_Game_Version */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB3E68E42AC57AF200E2301D /* Build configuration list for PBXNativeTarget "Console_Game_Version" */;
+			buildPhases = (
+				EB3E68D92AC57AF200E2301D /* Sources */,
+				EB3E68DA2AC57AF200E2301D /* Frameworks */,
+				EB3E68DB2AC57AF200E2301D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Console_Game_Version;
+			productName = Console_Game_Version;
+			productReference = EB3E68DD2AC57AF200E2301D /* Console_Game_Version */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB3E68D52AC57AF200E2301D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					EB3E68DC2AC57AF200E2301D = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = EB3E68D82AC57AF200E2301D /* Build configuration list for PBXProject "Console_Game_Version" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EB3E68D42AC57AF100E2301D;
+			productRefGroup = EB3E68DE2AC57AF200E2301D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB3E68DC2AC57AF200E2301D /* Console_Game_Version */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB3E68D92AC57AF200E2301D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB3E68F22AC57B8A00E2301D /* Skeleton.swift in Sources */,
+				EB3E68EE2AC57B4D00E2301D /* Monster.swift in Sources */,
+				EB3E68F02AC57B7A00E2301D /* Game.swift in Sources */,
+				EB3E68F62AC57B9F00E2301D /* SabreTotthedKitten.swift in Sources */,
+				EB3E68F42AC57B9300E2301D /* Ogre.swift in Sources */,
+				EB3E68EA2AC57B3000E2301D /* CreatureProtocol.swift in Sources */,
+				EB3E68EC2AC57B4400E2301D /* Player.swift in Sources */,
+				EB3E68E12AC57AF200E2301D /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EB3E68E22AC57AF200E2301D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EB3E68E32AC57AF200E2301D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		EB3E68E52AC57AF200E2301D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SKC6L8KZ5R;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		EB3E68E62AC57AF200E2301D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SKC6L8KZ5R;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB3E68D82AC57AF200E2301D /* Build configuration list for PBXProject "Console_Game_Version" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB3E68E22AC57AF200E2301D /* Debug */,
+				EB3E68E32AC57AF200E2301D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB3E68E42AC57AF200E2301D /* Build configuration list for PBXNativeTarget "Console_Game_Version" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB3E68E52AC57AF200E2301D /* Debug */,
+				EB3E68E62AC57AF200E2301D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EB3E68D52AC57AF200E2301D /* Project object */;
+}
