@@ -8,7 +8,7 @@
 import Foundation
 
 class SabreToothedKitten: Monster {
-    convenience init() {
-        self.init(name: "SabreToothedKitten", maxHealth: 80, attackPower: 15, defensePower: 10, damagePower: 10)
+    convenience override init() {
+        self.init(name: "Wild Sabre-Toothed Kitten", maxHealth: 30, attackPower: 15, defensePower: 30, damagePower: 10)
     }
 }

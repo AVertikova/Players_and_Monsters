@@ -1,5 +1,5 @@
 //
-//  Player.swift
+//  Monster.swift
 //  Console_Game_Version
 //
 //  Created by Анна Вертикова on 28.09.2023.
@@ -7,23 +7,26 @@
 
 import Foundation
 
-final class Player: Creature {
+class Monster: Creature {
     var name: String
     var maxHealth: UInt
     var currentHealth: UInt
     var attackPower: UInt8
     var defensePower: UInt8
     var damagePower: UInt8
-    var healPills: UInt8 = 4
+    var healPills: UInt8
+    var isAlive: Bool {
+        get {return currentHealth > 0}
+    }
     
     init() {
-        self.name = "Player"
-        self.maxHealth = 100
+        self.name = "Monster"
+        self.maxHealth = 200
         self.currentHealth = maxHealth
-        self.attackPower = 20
-        self.defensePower = 20
-        self.damagePower = 12
-        self.healPills = 4
+        self.attackPower = 200
+        self.defensePower = 200
+        self.damagePower = 200
+        self.healPills = 200
     }
     
     init(name: String, maxHealth: UInt, attackPower: UInt8,  defensePower: UInt8, damagePower: UInt8) {
@@ -37,9 +40,14 @@ final class Player: Creature {
     }
     
     func heal() {
-        currentHealth += currentHealth/100*30
-        if currentHealth > maxHealth {
-            currentHealth = maxHealth
+        if isAlive && self.healPills > 0 {
+            currentHealth += UInt(Double(maxHealth)/100*30)
+            print(currentHealth)
+            if currentHealth > maxHealth {
+                currentHealth = maxHealth
+            }
         }
+            self.healPills -= 1
+        
     }
 }

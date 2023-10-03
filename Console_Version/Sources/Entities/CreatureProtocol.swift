@@ -15,6 +15,7 @@ protocol Creature: Codable {
     var defensePower: UInt8 {get set} // 0-30
     var damagePower: UInt8 {get set} // M-N ex 1-6
     var healPills: UInt8 {get set} // 4
+    var isAlive: Bool {get}
     
     func heal()
 }

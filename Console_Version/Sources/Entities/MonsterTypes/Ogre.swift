@@ -8,7 +8,7 @@
 import Foundation
 
 class Ogre: Monster {
-    convenience init() {
-        self.init(name: "Ogre", maxHealth: 100, attackPower: 30, defensePower: 30, damagePower: 20)
+    convenience override init() {
+        self.init(name: "Dreadful Ogre", maxHealth: 100, attackPower: 30, defensePower: 10, damagePower: 20)
     }
 }
