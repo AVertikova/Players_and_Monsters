@@ -8,22 +8,54 @@
 
 /* Begin PBXBuildFile section */
 		EB124BDD2AD157DB006BCD35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB124BDC2AD157DB006BCD35 /* AppDelegate.swift */; };
-		EB124BDF2AD157DB006BCD35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB124BDE2AD157DB006BCD35 /* SceneDelegate.swift */; };
-		EB124BE12AD157DB006BCD35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB124BE02AD157DB006BCD35 /* ViewController.swift */; };
 		EB124BE42AD157DB006BCD35 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB124BE22AD157DB006BCD35 /* HomeViewController.storyboard */; };
 		EB124BE62AD157DC006BCD35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB124BE52AD157DC006BCD35 /* Assets.xcassets */; };
 		EB124BE92AD157DC006BCD35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB124BE72AD157DC006BCD35 /* LaunchScreen.storyboard */; };
+		EB2132042AD15E3D0080A2CC /* GameProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2131FD2AD15E3D0080A2CC /* GameProtocols.swift */; };
+		EB2132062AD15E3D0080A2CC /* GameBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2131FF2AD15E3D0080A2CC /* GameBuilder.swift */; };
+		EB21320F2AD15EFE0080A2CC /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB21320A2AD15EFE0080A2CC /* HomeBuilder.swift */; };
+		EB2132132AD15FA80080A2CC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2132122AD15FA80080A2CC /* HomeViewController.swift */; };
+		EB2132162AD15FF20080A2CC /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2132152AD15FF20080A2CC /* HomeInteractor.swift */; };
+		EB2132192AD160280080A2CC /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2132182AD160280080A2CC /* HomePresenter.swift */; };
+		EB21321C2AD1606E0080A2CC /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB21321B2AD1606E0080A2CC /* HomeRouter.swift */; };
+		EB2132222AD160DB0080A2CC /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB21321E2AD160DB0080A2CC /* Monster.swift */; };
+		EB2132232AD160DB0080A2CC /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB21321F2AD160DB0080A2CC /* Game.swift */; };
+		EB2132242AD160DB0080A2CC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2132202AD160DB0080A2CC /* Player.swift */; };
+		EB2132252AD160DB0080A2CC /* CreatureProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2132212AD160DB0080A2CC /* CreatureProtocol.swift */; };
+		EB21322A2AD160FE0080A2CC /* Ogre.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2132272AD160FE0080A2CC /* Ogre.swift */; };
+		EB21322B2AD160FE0080A2CC /* SabreToothedKitten.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2132282AD160FE0080A2CC /* SabreToothedKitten.swift */; };
+		EB21322C2AD160FE0080A2CC /* Skeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2132292AD160FE0080A2CC /* Skeleton.swift */; };
+		EB21322F2AD161310080A2CC /* GameInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB21322E2AD161310080A2CC /* GameInteractor.swift */; };
+		EB2132322AD161570080A2CC /* GameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2132312AD161570080A2CC /* GameRouter.swift */; };
+		EB2132352AD1619C0080A2CC /* GamePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2132342AD1619C0080A2CC /* GamePresenter.swift */; };
+		EB2132382AD161C00080A2CC /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2132372AD161C00080A2CC /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EB124BD92AD157DB006BCD35 /* Players_and_Monsters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Players_and_Monsters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB124BDC2AD157DB006BCD35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EB124BDE2AD157DB006BCD35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EB124BE02AD157DB006BCD35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EB124BE32AD157DB006BCD35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HomeViewController.storyboard; sourceTree = "<group>"; };
 		EB124BE52AD157DC006BCD35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB124BE82AD157DC006BCD35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB124BEA2AD157DC006BCD35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB2131FD2AD15E3D0080A2CC /* GameProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameProtocols.swift; sourceTree = "<group>"; };
+		EB2131FF2AD15E3D0080A2CC /* GameBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBuilder.swift; sourceTree = "<group>"; };
+		EB21320A2AD15EFE0080A2CC /* HomeBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
+		EB2132122AD15FA80080A2CC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EB2132152AD15FF20080A2CC /* HomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		EB2132182AD160280080A2CC /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		EB21321B2AD1606E0080A2CC /* HomeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		EB21321E2AD160DB0080A2CC /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
+		EB21321F2AD160DB0080A2CC /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		EB2132202AD160DB0080A2CC /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		EB2132212AD160DB0080A2CC /* CreatureProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatureProtocol.swift; sourceTree = "<group>"; };
+		EB2132272AD160FE0080A2CC /* Ogre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ogre.swift; sourceTree = "<group>"; };
+		EB2132282AD160FE0080A2CC /* SabreToothedKitten.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SabreToothedKitten.swift; sourceTree = "<group>"; };
+		EB2132292AD160FE0080A2CC /* Skeleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skeleton.swift; sourceTree = "<group>"; };
+		EB21322E2AD161310080A2CC /* GameInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameInteractor.swift; sourceTree = "<group>"; };
+		EB2132312AD161570080A2CC /* GameRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameRouter.swift; sourceTree = "<group>"; };
+		EB2132342AD1619C0080A2CC /* GamePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePresenter.swift; sourceTree = "<group>"; };
+		EB2132372AD161C00080A2CC /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +91,6 @@
 				EB124BF52AD15B82006BCD35 /* HomeScene */,
 				EB124BF42AD15B77006BCD35 /* GameScene */,
 				EB124BDC2AD157DB006BCD35 /* AppDelegate.swift */,
-				EB124BDE2AD157DB006BCD35 /* SceneDelegate.swift */,
-				EB124BE02AD157DB006BCD35 /* ViewController.swift */,
-				EB124BE22AD157DB006BCD35 /* HomeViewController.storyboard */,
 				EB124BE52AD157DC006BCD35 /* Assets.xcassets */,
 				EB124BE72AD157DC006BCD35 /* LaunchScreen.storyboard */,
 				EB124BEA2AD157DC006BCD35 /* Info.plist */,
@@ -72,6 +101,13 @@
 		EB124BF42AD15B77006BCD35 /* GameScene */ = {
 			isa = PBXGroup;
 			children = (
+				EB2132362AD161A70080A2CC /* View */,
+				EB2132332AD161730080A2CC /* Presenter */,
+				EB21322D2AD161100080A2CC /* Interactor */,
+				EB2132302AD1613F0080A2CC /* Router */,
+				EB21321D2AD160B10080A2CC /* Entities */,
+				EB2131FF2AD15E3D0080A2CC /* GameBuilder.swift */,
+				EB2131FD2AD15E3D0080A2CC /* GameProtocols.swift */,
 			);
 			path = GameScene;
 			sourceTree = "<group>";
@@ -79,8 +115,100 @@
 		EB124BF52AD15B82006BCD35 /* HomeScene */ = {
 			isa = PBXGroup;
 			children = (
+				EB21321A2AD160410080A2CC /* Router */,
+				EB2132112AD15F630080A2CC /* View */,
+				EB2132142AD15FC40080A2CC /* Interactor */,
+				EB2132172AD1600A0080A2CC /* Presenter */,
+				EB21320A2AD15EFE0080A2CC /* HomeBuilder.swift */,
 			);
 			path = HomeScene;
+			sourceTree = "<group>";
+		};
+		EB2132112AD15F630080A2CC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB2132122AD15FA80080A2CC /* HomeViewController.swift */,
+				EB124BE22AD157DB006BCD35 /* HomeViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EB2132142AD15FC40080A2CC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				EB2132152AD15FF20080A2CC /* HomeInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		EB2132172AD1600A0080A2CC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				EB2132182AD160280080A2CC /* HomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		EB21321A2AD160410080A2CC /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				EB21321B2AD1606E0080A2CC /* HomeRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		EB21321D2AD160B10080A2CC /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				EB2132262AD160E00080A2CC /* MonsterTypes */,
+				EB2132212AD160DB0080A2CC /* CreatureProtocol.swift */,
+				EB21321F2AD160DB0080A2CC /* Game.swift */,
+				EB21321E2AD160DB0080A2CC /* Monster.swift */,
+				EB2132202AD160DB0080A2CC /* Player.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		EB2132262AD160E00080A2CC /* MonsterTypes */ = {
+			isa = PBXGroup;
+			children = (
+				EB2132272AD160FE0080A2CC /* Ogre.swift */,
+				EB2132282AD160FE0080A2CC /* SabreToothedKitten.swift */,
+				EB2132292AD160FE0080A2CC /* Skeleton.swift */,
+			);
+			path = MonsterTypes;
+			sourceTree = "<group>";
+		};
+		EB21322D2AD161100080A2CC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				EB21322E2AD161310080A2CC /* GameInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		EB2132302AD1613F0080A2CC /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				EB2132312AD161570080A2CC /* GameRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		EB2132332AD161730080A2CC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				EB2132342AD1619C0080A2CC /* GamePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		EB2132362AD161A70080A2CC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB2132372AD161C00080A2CC /* GameView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,9 +282,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB124BE12AD157DB006BCD35 /* ViewController.swift in Sources */,
+				EB21322C2AD160FE0080A2CC /* Skeleton.swift in Sources */,
+				EB21320F2AD15EFE0080A2CC /* HomeBuilder.swift in Sources */,
+				EB2132042AD15E3D0080A2CC /* GameProtocols.swift in Sources */,
+				EB2132162AD15FF20080A2CC /* HomeInteractor.swift in Sources */,
+				EB2132062AD15E3D0080A2CC /* GameBuilder.swift in Sources */,
+				EB2132242AD160DB0080A2CC /* Player.swift in Sources */,
+				EB21322B2AD160FE0080A2CC /* SabreToothedKitten.swift in Sources */,
+				EB2132352AD1619C0080A2CC /* GamePresenter.swift in Sources */,
 				EB124BDD2AD157DB006BCD35 /* AppDelegate.swift in Sources */,
-				EB124BDF2AD157DB006BCD35 /* SceneDelegate.swift in Sources */,
+				EB2132192AD160280080A2CC /* HomePresenter.swift in Sources */,
+				EB2132232AD160DB0080A2CC /* Game.swift in Sources */,
+				EB2132222AD160DB0080A2CC /* Monster.swift in Sources */,
+				EB2132382AD161C00080A2CC /* GameView.swift in Sources */,
+				EB21322F2AD161310080A2CC /* GameInteractor.swift in Sources */,
+				EB21322A2AD160FE0080A2CC /* Ogre.swift in Sources */,
+				EB2132252AD160DB0080A2CC /* CreatureProtocol.swift in Sources */,
+				EB2132132AD15FA80080A2CC /* HomeViewController.swift in Sources */,
+				EB2132322AD161570080A2CC /* GameRouter.swift in Sources */,
+				EB21321C2AD1606E0080A2CC /* HomeRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
