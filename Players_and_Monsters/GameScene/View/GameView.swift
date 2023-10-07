@@ -14,8 +14,7 @@ class GameViewController: UIViewController, GameViewPropertiesProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        print("\n\nAccount View Controller Loaded\n\n")
+        print("\n\nGame View Controller Loaded\n\n")
         presenter?.fetchData()
     }
 }

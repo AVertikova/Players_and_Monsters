@@ -45,7 +45,7 @@
         <!--Game View Controller-->
         <scene sceneID="fTU-u5-ZFh">
             <objects>
-                <viewController storyboardIdentifier="GameViewController" id="pEa-6G-C8b" customClass="GameViewController" customModule="Players_and_Monsters" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pEa-6G-C8b" customClass="GameViewController" customModule="Players_and_Monsters" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NZu-pw-M0F">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

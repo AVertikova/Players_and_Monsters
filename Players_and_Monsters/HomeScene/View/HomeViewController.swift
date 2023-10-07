@@ -39,10 +39,10 @@ class HomeViewController: UIViewController, HomeViewPropertiesProtocol {
     
     
     @IBAction func startGameButtonTapped(_ sender: Any) {
-//        if let nController = navigationController {
-//            print("View: Button is tapped on View. View will tell Presenter that button has been tapped")
-//            presenter?.startGameButtonTapped(navigationController: nController)
-//        }
+        if let nController = navigationController {
+            print("View: Button is tapped on View. View will tell Presenter that button has been tapped")
+            presenter?.startGameButtonTapped(navigationController: nController)
+        }
     }
 }
 
