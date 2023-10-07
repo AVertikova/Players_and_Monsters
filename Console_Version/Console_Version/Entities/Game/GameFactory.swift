@@ -14,6 +14,7 @@ protocol GameFactoryProtocol {
 class GameFactory: GameFactoryProtocol {
     
     func createNewGame(playerName: String, monsterType: String) -> Game {
+        //     TODO: input validation
         let monsterTypes = [Ogre(), Skeleton(), SabreToothedKitten()]
         switch monsterType {
         case "1":

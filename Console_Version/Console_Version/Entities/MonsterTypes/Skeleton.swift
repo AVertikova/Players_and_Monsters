@@ -8,7 +8,7 @@
 import Foundation
 
 class Skeleton: Monster {
-    convenience override init() {
-        self.init(name: "Scary Skeleton", maxHealth: 50, attackPower: 10, defensePower: 10, damagePower: 5)
+    convenience init() {
+        self.init(name: "Скелет", maxHealth: 50, attackPower: 10, defensePower: 10, damagePower: 5)
     }
 }
