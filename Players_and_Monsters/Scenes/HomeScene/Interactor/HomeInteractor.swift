@@ -11,7 +11,6 @@ import Foundation
 
 class HomeInteractor: HomeInteractorPropertiesProtocol {
     weak var presenter: HomeInteractorToPresenterResponseProtocol?
-    var gameStorage: GameStorage?
 }
 
 extension HomeInteractor: HomePresenterToInteractorRequestProtocol {

@@ -74,8 +74,8 @@ class GameService: GameServicePropertiesProtocol, GameServiceProtocol {
         return game.attackModifier
     }
     
-    func attack(attacker: String, defender: String) -> Bool {
-         return attacker == "Player" ? game.makeAttack(attacker: game.player, defender: &game.monster) :
+    func attack(playerAttacks: Bool) -> Bool {
+         return playerAttacks == true ? game.makeAttack(attacker: game.player, defender: &game.monster) :
                                        game.makeAttack(attacker: game.monster, defender: &game.player)
     }
     

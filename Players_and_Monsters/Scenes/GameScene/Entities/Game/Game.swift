@@ -24,6 +24,16 @@ class Game {
 
 extension Game {
     
+    func attack(playerAttacks: Bool) -> Bool {
+        var attackSuccess: Bool
+        if playerAttacks {
+            attackSuccess = makeAttack(attacker: player, defender: &monster)
+        } else {
+            attackSuccess = makeAttack(attacker: monster, defender: &player)
+        }
+        return attackSuccess
+    }
+    
     func makeAttack(attacker: Creature, defender: inout Creature) -> Bool {
         
         self.attackModifier = getAttackModifier(attacker: attacker, defender: defender)

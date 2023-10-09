@@ -27,8 +27,8 @@ protocol GameInteractorPropertiesProtocol: AnyObject {
 // MARK: Game Interaction protocols
 
 protocol GameViewToPresenterRequestProtocol: AnyObject {
-    func fetchData()
-    
+    func fetchGame(request: GetGameData.GameInitRequest)
+    func attackButtonTapped(playerAttacks: Bool)
 }
 
 protocol GamePresenterToViewResponseProtocol: AnyObject {
@@ -37,12 +37,15 @@ protocol GamePresenterToViewResponseProtocol: AnyObject {
 }
 
 protocol GamePresenterToInteractorRequestProtocol: AnyObject {
-    func fetchData()
+    func attackButtonTapped(playerAttacks: Bool)
+    func initGame(request: GetGameData.GameInitRequest)
+    func fetchAttackSucces()
+    func fetchAttackFail()
 }
 
 protocol GameInteractorToPresenterResponseProtocol: AnyObject {
-    func fetchDataSuccess()
-    func fetchDataFailed()
+    func fetchData(response: GetGameData.Response)
+ 
 }
 
 protocol GamePresenterToRouterRequestProtocol: AnyObject {

@@ -7,23 +7,21 @@
 
 import Foundation
 
-enum GameStorage {
-    
-    enum GetGame {
+enum GetGameData {
         
         struct Request {}
         
         struct GameInitRequest {
-            var playerName: String
-            var monsterType: String
+//            var playerName: String?
+//            var monsterType: String?
         }
         
         struct Response {
-            var gameService: GameService
+            var gameService: GameService?
         }
         
         struct ViewModel {
-            var gameService: GameService
+            var gameService: GameService?
         }
-    }
+    
 }

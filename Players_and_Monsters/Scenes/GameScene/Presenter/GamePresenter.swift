@@ -19,19 +19,23 @@ class GamePresenter: GamePresenterPropertiesProtocol {
 }
 
 extension GamePresenter: GameViewToPresenterRequestProtocol {
-    func fetchData() {
-        interactor?.fetchData()
+    
+    func attackButtonTapped(playerAttacks: Bool) {
+        interactor?.attackButtonTapped(playerAttacks: playerAttacks)
     }
+    
+    func fetchGame(request: GetGameData.GameInitRequest) {
+        interactor?.initGame(request: request)
+    }
+    
+    
     
 }
 
 extension GamePresenter: GameInteractorToPresenterResponseProtocol {
-    func fetchDataSuccess() {
+    func fetchData(response: GetGameData.Response) {
+//        response.gameService.
         viewController?.showView()
-    }
-    
-    func fetchDataFailed() {
-        viewController?.showError()
     }
     
     
