@@ -56,8 +56,5 @@ extension Game {
            return false
         }
     }
-    
-    
-    
 }
 

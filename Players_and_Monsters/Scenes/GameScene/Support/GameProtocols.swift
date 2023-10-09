@@ -29,26 +29,33 @@ protocol GameInteractorPropertiesProtocol: AnyObject {
 protocol GameViewToPresenterRequestProtocol: AnyObject {
     func fetchGame(request: GetGameData.GameInitRequest)
     func attackButtonTapped(playerAttacks: Bool)
+    func healButtonTapped()
 }
 
 protocol GamePresenterToViewResponseProtocol: AnyObject {
-    func showView()
-    func showError()
+    func showView(dataToDisplay: String)
+    func showNoHealPillsView(dataToDisplay: String)
+    func showGameOver(dataToDisplay: String)
 }
 
 protocol GamePresenterToInteractorRequestProtocol: AnyObject {
     func attackButtonTapped(playerAttacks: Bool)
+    func healButtonTapped()
     func initGame(request: GetGameData.GameInitRequest)
-    func fetchAttackSucces()
-    func fetchAttackFail()
 }
 
 protocol GameInteractorToPresenterResponseProtocol: AnyObject {
     func fetchData(response: GetGameData.Response)
+    func fetchAttackDetails(response: GetGameData.Response, attacker: String)
+    func fetchAttackSucces(response: GetGameData.Response, attacker: String, damage: UInt)
+    func fetchAttackFail()
+    func fetchHealSuccess(response: GetGameData.Response)
+    func fetchHealFail(response: GetGameData.Response)
+    func fetchGameOver(winner: String)
+    
  
 }
 
 protocol GamePresenterToRouterRequestProtocol: AnyObject {
-//    func pushToGameScene(navigationController: UINavigationController)
 }
 

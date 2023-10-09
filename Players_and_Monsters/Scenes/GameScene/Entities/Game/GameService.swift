@@ -25,14 +25,15 @@ protocol GameServiceProtocol {
     func getPlayerData() -> CreatureData
     func getMonsterData() -> CreatureData
     func getAttackModifier() -> UInt8
-    func attack(attacker: String, defender: String) -> Bool
-    func heal(isHealing: String)
+    func attack(playerAttacks: Bool) -> (success: Bool, damage: UInt)
+    func heal() -> Bool
     func gameOver() -> Bool
 }
 
 
 
 class GameService: GameServicePropertiesProtocol, GameServiceProtocol {
+   
     func getGame() -> Game {
         return self.game
     }
@@ -74,15 +75,42 @@ class GameService: GameServicePropertiesProtocol, GameServiceProtocol {
         return game.attackModifier
     }
     
-    func attack(playerAttacks: Bool) -> Bool {
-         return playerAttacks == true ? game.makeAttack(attacker: game.player, defender: &game.monster) :
-                                       game.makeAttack(attacker: game.monster, defender: &game.player)
+    func attack(playerAttacks: Bool) -> (success: Bool, damage: UInt) {
+        if playerAttacks == true {
+            let beforeHealth = game.monster.currentHealth
+            let result = game.makeAttack(attacker: game.player, defender: &game.monster)
+            if result == true {
+                let afterHealth = game.monster.currentHealth
+                if beforeHealth > 0 && afterHealth > 0 {
+                    let damage = beforeHealth > afterHealth ? beforeHealth - afterHealth : 999
+                    return (result, damage)
+                } else {
+                    return (result, 777)
+                }
+            } else {
+                return (result, 0)
+            }
+        } else {
+            sleep(1)
+            let beforeHealth = game.player.currentHealth
+            let result = game.makeAttack(attacker: game.monster, defender: &game.player)
+            if result == true {
+                let afterHealth = game.player.currentHealth
+                let damage = beforeHealth > 0 ? beforeHealth - afterHealth : 999
+                return (result, damage)
+            } else {
+                return (result, 0)
+            }
+        }
     }
     
-    func heal(isHealing: String) {
-        isHealing == "Player" ? game.player.heal() :
-                                game.monster.heal()
-        
+    func heal() -> Bool {
+        if game.player.healPills > 0 {
+            game.player.heal()
+            return true
+        } else {
+            return false
+        }
     }
     
     func gameOver() -> Bool {

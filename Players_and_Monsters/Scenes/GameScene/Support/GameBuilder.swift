@@ -10,7 +10,6 @@ import UIKit
 
 class GameBuilder {
     static func createModule() -> GameViewController {
-        print("Game Module Creation")
         let gameViewController =  UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         let presenter: GamePresenterPropertiesProtocol & GameViewToPresenterRequestProtocol & GameInteractorToPresenterResponseProtocol = GamePresenter()
         let interactor: GameInteractorPropertiesProtocol & GamePresenterToInteractorRequestProtocol = GameInteractor()

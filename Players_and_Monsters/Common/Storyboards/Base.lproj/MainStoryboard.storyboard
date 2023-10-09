@@ -322,14 +322,14 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkE-F6-xT6">
-                                <rect key="frame" x="16" y="206" width="361" height="515.33333333333337"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkE-F6-xT6">
+                                <rect key="frame" x="16" y="206" width="361" height="410"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bgb-iG-Kij">
-                                <rect key="frame" x="128" y="728" width="137" height="35"/>
+                                <rect key="frame" x="128" y="646" width="137" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <attributedString key="attributedTitle">
@@ -346,23 +346,44 @@
                                     <action selector="startGameButtonTapped:" destination="1ew-G8-xlo" eventType="touchUpInside" id="oZd-Ab-iUX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjc-lY-Npf">
+                                <rect key="frame" x="123.66666666666669" y="711" width="146" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Подлечиться">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="AmericanTypewriter"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="healButtonTapped:" destination="pEa-6G-C8b" eventType="touchUpInside" id="TOB-f1-rEG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ohr-ri-ndm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ohr-ri-ndm" firstAttribute="bottom" secondItem="Bgb-iG-Kij" secondAttribute="bottom" constant="55" id="0DD-x3-Ppy"/>
-                            <constraint firstItem="Bgb-iG-Kij" firstAttribute="top" secondItem="YkE-F6-xT6" secondAttribute="bottom" constant="6.6666666666667425" id="5vv-S3-nxw"/>
+                            <constraint firstItem="Ohr-ri-ndm" firstAttribute="bottom" secondItem="Bgb-iG-Kij" secondAttribute="bottom" constant="137" id="0DD-x3-Ppy"/>
                             <constraint firstItem="YkE-F6-xT6" firstAttribute="top" secondItem="7Ry-g5-pR7" secondAttribute="bottom" constant="30" id="7Fc-hN-UWM"/>
                             <constraint firstItem="YkE-F6-xT6" firstAttribute="leading" secondItem="Ohr-ri-ndm" secondAttribute="leading" constant="16" id="FVN-UT-MeT"/>
+                            <constraint firstItem="vjc-lY-Npf" firstAttribute="top" secondItem="Bgb-iG-Kij" secondAttribute="bottom" constant="30" id="HJG-yp-c21"/>
                             <constraint firstItem="Bgb-iG-Kij" firstAttribute="centerX" secondItem="YkE-F6-xT6" secondAttribute="centerX" id="Ma1-Nc-sC8"/>
                             <constraint firstItem="Ohr-ri-ndm" firstAttribute="trailing" secondItem="Bgb-iG-Kij" secondAttribute="trailing" constant="128" id="Nep-Rt-aS7"/>
                             <constraint firstItem="7Ry-g5-pR7" firstAttribute="centerX" secondItem="NZu-pw-M0F" secondAttribute="centerX" id="Qnc-Is-IFW"/>
                             <constraint firstItem="Ohr-ri-ndm" firstAttribute="trailing" secondItem="YkE-F6-xT6" secondAttribute="trailing" constant="16" id="YGA-m3-QTc"/>
+                            <constraint firstItem="vjc-lY-Npf" firstAttribute="centerX" secondItem="NZu-pw-M0F" secondAttribute="centerX" id="fkE-Qh-CLf"/>
                             <constraint firstItem="7Ry-g5-pR7" firstAttribute="top" secondItem="Ohr-ri-ndm" secondAttribute="top" constant="95" id="hD5-pw-bCX"/>
+                            <constraint firstItem="Bgb-iG-Kij" firstAttribute="top" secondItem="YkE-F6-xT6" secondAttribute="bottom" constant="30" id="jnk-4B-Tkg"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="attackButton" destination="Bgb-iG-Kij" id="PKe-55-QHl"/>
                         <outlet property="gameProcessTextView" destination="YkE-F6-xT6" id="rwy-of-Cx6"/>
+                        <outlet property="healButton" destination="vjc-lY-Npf" id="vbQ-04-Qy3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rto-cc-3C1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
