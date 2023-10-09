@@ -10,8 +10,6 @@ import UIKit
 
 class GameInfoRouter: GameInfoPresenterToRouterRequestProtocol {
     func pushToGameScene(navigationController: UINavigationController) {
-        print("GameInfoRouter: Presenter has asked router to push to GAME")
-        print("GameInfoRouter: Creating GAME VC now")
         let gameModule = GameBuilder.createModule()
         navigationController.pushViewController(gameModule, animated: true)
     }

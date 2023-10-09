@@ -10,19 +10,28 @@ import Foundation
 
 
 class HomeInteractor: HomeInteractorPropertiesProtocol {
-   weak var presenter: HomeInteractorToPresenterResponseProtocol?
-    var gameService: GameService?
+    weak var presenter: HomeInteractorToPresenterResponseProtocol?
+    var gameStorage: GameStorage?
 }
 
 extension HomeInteractor: HomePresenterToInteractorRequestProtocol {
-    func createGame(playerName: String, monsterType: String) {
-        <#code#>
+    func saveChoice(playerName: String, monsterType: String) {
+        if playerName.isEmpty {
+            let playerDefaultName = """
+            Рыцарь Света. Или Оля?
+                        Неважно. Главное, мы - за добро.
+            """
+            UserDefaults.standard.set(playerDefaultName, forKey: "playerName")
+        } else {
+            UserDefaults.standard.set(playerName, forKey: "playerName")
+        }
+        UserDefaults.standard.set(monsterType, forKey: "monsterType")
     }
     
-    func fetchData() {
-        print("HomeInteractor: Got Request from Presenter to fetch data. Will give presenter the required data.")
-        let monsterTypes = ["1. Ужасный-преужасный Огр", "2. Cтрашненький Скелет", " 3. Дикий саблезубый Котёнок", "4. Выбери за меня" ]
-        presenter?.fetchDataSuccess(monsterTypes: monsterTypes)
-
+    
+    func fetchChoiceData(request: GetHomeData.Request) {
+        let response = GetHomeData.Response()
+        presenter?.fetchChoiceDataSuccess(response: response)
+        
     }
 }

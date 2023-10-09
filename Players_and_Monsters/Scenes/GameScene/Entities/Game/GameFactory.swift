@@ -14,7 +14,7 @@ protocol GameFactoryProtocol {
 class GameFactory: GameFactoryProtocol {
  
     func createNewGame(playerName: String, monsterType: String) -> Game {
-        var monsterNames = ["1. Ужасный-преужасный Огр", "2. Cтрашненький Скелет", " 3. Дикий саблезубый Котёнок", "4. Выбери за меня"]
+        let monsterNames = ["1. Ужасный-преужасный Огр", "2. Cтрашненький Скелет", " 3. Дикий саблезубый Котёнок", "4. Выбери за меня"]
         let monsterTypes = [Ogre(), Skeleton(), SabreToothedKitten()]
         
         switch monsterType {

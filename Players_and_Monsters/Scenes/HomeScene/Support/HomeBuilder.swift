@@ -10,7 +10,6 @@ import UIKit
 
 class HomeBuilder {
     static func createModule() -> HomeViewController {
-        print("Home Module Creation")
         let homeViewController =  UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         let presenter: HomePresenterPropertiesProtocol & HomeViewToPresenterRequestProtocol & HomeInteractorToPresenterResponseProtocol = HomePresenter()
         let interactor: HomeInteractorPropertiesProtocol & HomePresenterToInteractorRequestProtocol = HomeInteractor()

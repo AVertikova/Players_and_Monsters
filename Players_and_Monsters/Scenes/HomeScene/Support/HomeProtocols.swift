@@ -27,24 +27,25 @@ protocol HomeInteractorPropertiesProtocol: AnyObject {
 // MARK: Home Interaction protocols
 
 protocol HomeViewToPresenterRequestProtocol: AnyObject {
-    func fetchData()
+    func saveChoice(playerName: String, monsterType: String)
+    func fetchChoiceData(request: GetHomeData.Request)
     func continueButtonTapped(navigationController: UINavigationController)
 }
 
 protocol HomePresenterToViewResponseProtocol: AnyObject {
-    func showView(monsterTypes: [String])
+    func showView(response: GetHomeData.Response)
     func showError()
 }
 
 protocol HomePresenterToInteractorRequestProtocol: AnyObject {
-    func createGame(playerName: String, monsterType: String)
-    func fetchData()
+    func saveChoice(playerName: String, monsterType: String)
+    func fetchChoiceData(request: GetHomeData.Request)
 }
 
 
 protocol HomeInteractorToPresenterResponseProtocol: AnyObject {
-    func fetchDataSuccess(monsterTypes: [String])
-    func fetchDataFailed()
+    func fetchChoiceDataSuccess(response: GetHomeData.Response)
+    func fetchChoiceDataFailed()
 }
 
 protocol HomePresenterToRouterRequestProtocol: AnyObject {

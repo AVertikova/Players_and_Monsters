@@ -27,22 +27,22 @@ protocol GameInfoInteractorPropertiesProtocol: AnyObject {
 // MARK: GameInfo Interaction protocols
 
 protocol GameInfoViewToPresenterRequestProtocol: AnyObject {
-    func fetchData()
+    func fetchCharactersData(request: GetCharactersData.Request)
     func startGameButtonTapped(navigationController: UINavigationController)
 }
 
 protocol GameInfoPresenterToViewResponseProtocol: AnyObject {
-    func showView()
+    func showView(viewModel: GetCharactersData.ViewModel)
     func showError()
 }
 
 protocol GameInfoPresenterToInteractorRequestProtocol: AnyObject {
-    func fetchData()
+    func fetchCharactersData(request: GetCharactersData.Request)
 }
 
 protocol GameInfoInteractorToPresenterResponseProtocol: AnyObject {
-    func fetchDataSuccess()
-    func fetchDataFailed()
+    func fetchGameData(response: GetCharactersData.Response)
+    func createViewModel(response: GetCharactersData.Response) -> GetCharactersData.ViewModel
 }
 
 protocol GameInfoPresenterToRouterRequestProtocol: AnyObject {

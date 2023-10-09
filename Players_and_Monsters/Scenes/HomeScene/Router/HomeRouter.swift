@@ -11,8 +11,6 @@ import UIKit
 
 class HomeRouter: HomePresenterToRouterRequestProtocol {
     func pushToGameInfoScene(navigationController: UINavigationController) {
-        print("HomeRouter: Presenter has asked router to push to catalog")
-        print("HomeRouter: Creating Account now")
         let gameInfoModule = GameInfoBuilder.createModule()
         navigationController.pushViewController(gameInfoModule, animated: true)
     }

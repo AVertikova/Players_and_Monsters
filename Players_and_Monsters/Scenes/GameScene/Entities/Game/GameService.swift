@@ -21,6 +21,7 @@ protocol GameServicePropertiesProtocol {
 }
 
 protocol GameServiceProtocol {
+    func getGame() -> Game
     func getPlayerData() -> CreatureData
     func getMonsterData() -> CreatureData
     func getAttackModifier() -> UInt8
@@ -32,6 +33,10 @@ protocol GameServiceProtocol {
 
 
 class GameService: GameServicePropertiesProtocol, GameServiceProtocol {
+    func getGame() -> Game {
+        return self.game
+    }
+    
     internal let gameFactory = GameFactory()
     internal let game: Game
     

@@ -34,16 +34,6 @@ final class Player: Creature {
         self.name = name
     }
     
-//    init(name: String, maxHealth: UInt, attackPower: UInt8,  defensePower: UInt8, damagePower: UInt8) {
-//        self.name = name
-//        self.maxHealth = maxHealth
-//        self.currentHealth = maxHealth
-//        self.attackPower = attackPower
-//        self.defensePower = defensePower
-//        self.damagePower = damagePower
-//        self.healPills = 4
-//    }
-    
     func heal() {
         if isAlive && self.healPills > 0 {
             currentHealth += UInt(Double(maxHealth)/100*30)

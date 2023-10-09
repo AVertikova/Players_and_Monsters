@@ -24,10 +24,7 @@ class HomeViewController: UIViewController, HomeViewPropertiesProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-        print("HomeView: View is loaded now. Will ask presenter to start fetching data")
-//        var enemyPickerData: [String] = 
-        presenter?.fetchData()
+        self.getData()
         setup()
     }
     
@@ -43,22 +40,25 @@ class HomeViewController: UIViewController, HomeViewPropertiesProtocol {
     
     @IBAction func proceedButtonTapped(_ sender: Any) {
         if let nController = navigationController {
-            print("HomeView: Button is tapped on View. View will tell Presenter that button has been tapped")
+            presenter?.saveChoice(playerName: playerNameTextField.text ?? "", monsterType: enemyTextField.text ?? "")
             presenter?.continueButtonTapped(navigationController: nController)
         }
         
+    }
+    
+    func getData() {
+        let request = GetHomeData.Request()
+        presenter?.fetchChoiceData(request: request)
     }
 }
 
 
 extension HomeViewController: HomePresenterToViewResponseProtocol {
-    func showView(monsterTypes: [String]) {
-        print("HomeView: Presenter has asked View to show itself")
-        enemyPickerData = monsterTypes
+    func showView(response: GetHomeData.Response) {
+        enemyPickerData = response.enemies
     }
     
     func showError() {
-        print("HomeView: Presenter has asked view to show error")
     }
     
     
