@@ -8,16 +8,16 @@
 import Foundation
 
 extension Game {
-    func getAttackModifier(attacker: Creature, defender: Creature) -> UInt8 {
+    func getAttackModifier(attacker: CreaturePropertiesProtocol, defender: CreaturePropertiesProtocol) -> UInt {
         return attacker.attackPower > defender.defensePower  ?
         (attacker.attackPower - defender.defensePower + 1) : 1
         
     }
     
-    func throwCubes(cubesCount: UInt8) -> Bool {
-        var cubes: [UInt8] = []
+    func throwCubes(cubesCount: UInt) -> Bool {
+        var cubes: [UInt] = []
         for _ in 1...cubesCount {
-            let cube = UInt8.random(in: 1...6)
+            let cube = UInt.random(in: 1...6)
             cubes.append(cube)
         }
         return  (cubes.contains(5) || cubes.contains(6))

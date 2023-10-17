@@ -7,48 +7,63 @@
 
 import Foundation
 
-typealias CreatureData = (name: String,
+typealias CreatureInfo = (name: String,
                           health: UInt,
-                          attackPower: UInt8,
-                          defensePower: UInt8,
-                          damagePower: UInt8,
-                          healPills: UInt8,
+                          attackPower: UInt,
+                          defensePower: UInt,
+                          damagePower: UInt,
+                          healPills: UInt,
                           isAlive: Bool)
+
+typealias AttackInfo = (attacker: String,
+                        defender: String,
+                        attackPower: UInt,
+                        defensePower: UInt,
+                        attackModifier: UInt)
+
+typealias AttackResult = (attackSuccess: Bool,
+                          damage: UInt,
+                          defenderHealth: UInt,
+                          gameOver: Bool)
 
 protocol GameServicePropertiesProtocol {
     var gameFactory: GameFactory {get}
     var game: Game {get}
+    var currentAttackInfo: AttackInfo? {get}
+    var currentAttackResult: AttackResult? {get}
 }
 
 protocol GameServiceProtocol {
-    func getGame() -> Game
-    func getPlayerData() -> CreatureData
-    func getMonsterData() -> CreatureData
-    func getAttackModifier() -> UInt8
-    func attack(playerAttacks: Bool) -> (success: Bool, damage: UInt)
+    func getPlayerData() -> CreatureInfo
+    func getMonsterData() -> CreatureInfo
+    func attack(attackRequest: GetGameData.AttackRequest) -> (GetGameData.Response )
     func heal() -> Bool
-    func gameOver() -> Bool
+    func getAttackModifier() -> UInt
 }
 
 
 
-class GameService: GameServicePropertiesProtocol, GameServiceProtocol {
-   
-    func getGame() -> Game {
-        return self.game
-    }
+class GameService: GameServicePropertiesProtocol {
+    var currentAttackInfo: AttackInfo?
+    var currentAttackResult: AttackResult?
     
     internal let gameFactory = GameFactory()
     internal let game: Game
     
-    
-    
     init (playerName: String, monsterType: String) {
         game = gameFactory.createNewGame(playerName: playerName, monsterType: monsterType)
     }
+}
+
+
+extension GameService: GameServiceProtocol {
+    func getAttackModifier() -> UInt {
+        return game.attackModifier
+    }
     
-    func getPlayerData() -> CreatureData {
-        let creatureData: CreatureData = (name: game.player.name,
+    
+    func getPlayerData() -> CreatureInfo {
+        let creatureData: CreatureInfo = (name: game.player.name,
                                           health: game.player.currentHealth,
                                           attackPower: game.player.attackPower,
                                           defensePower: game.player.defensePower,
@@ -59,8 +74,8 @@ class GameService: GameServicePropertiesProtocol, GameServiceProtocol {
         
     }
     
-    func getMonsterData() -> CreatureData {
-        let creatureData: CreatureData = (name: game.monster.name,
+    func getMonsterData() -> CreatureInfo {
+        let creatureData: CreatureInfo = (name: game.monster.name,
                                           health: game.monster.currentHealth,
                                           attackPower: game.monster.attackPower,
                                           defensePower: game.monster.defensePower,
@@ -71,49 +86,21 @@ class GameService: GameServicePropertiesProtocol, GameServiceProtocol {
         
     }
     
-    func getAttackModifier() -> UInt8 {
-        return game.attackModifier
-    }
     
-    func attack(playerAttacks: Bool) -> (success: Bool, damage: UInt) {
-        if playerAttacks == true {
-            let beforeHealth = game.monster.currentHealth
-            let result = game.makeAttack(attacker: game.player, defender: &game.monster)
-            if result == true {
-                let afterHealth = game.monster.currentHealth
-                if beforeHealth > 0 && afterHealth > 0 {
-                    let damage = beforeHealth > afterHealth ? beforeHealth - afterHealth : 999
-                    return (result, damage)
-                } else {
-                    return (result, 777)
-                }
-            } else {
-                return (result, 0)
-            }
-        } else {
-            sleep(1)
-            let beforeHealth = game.player.currentHealth
-            let result = game.makeAttack(attacker: game.monster, defender: &game.player)
-            if result == true {
-                let afterHealth = game.player.currentHealth
-                let damage = beforeHealth > 0 ? beforeHealth - afterHealth : 999
-                return (result, damage)
-            } else {
-                return (result, 0)
-            }
-        }
+    
+    func attack(attackRequest: GetGameData.AttackRequest) -> (GetGameData.Response) {
+        let attackResult = game.attack(attackRequest: attackRequest)
+        self.currentAttackInfo = attackResult.attackInfo
+        self.currentAttackResult = attackResult.AttackResult
+        return GetGameData.Response(gameService: self)
     }
     
     func heal() -> Bool {
         if game.player.healPills > 0 {
-            game.player.heal()
+            game.player.healPlayer()
             return true
         } else {
             return false
         }
-    }
-    
-    func gameOver() -> Bool {
-        return game.isOver
     }
 }

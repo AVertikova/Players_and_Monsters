@@ -5,17 +5,21 @@
 //  Created by Анна Вертикова on 27.09.2023.
 //
 
-import Foundation
+
 
 import Foundation
+
+typealias PlayerProtocol = CreaturePropertiesProtocol&PlayerHealingProtocol
+typealias MonsterProtocol = CreaturePropertiesProtocol&MonsterHealingProtocol
 
 class Game {
-    var player: Creature
-    var monster: Creature
+    var player: PlayerProtocol
+    var monster: MonsterProtocol
     var isOver: Bool = false
-    var attackModifier: UInt8 = 0
+    var attackModifier: UInt = 0
     
-    init(player: Creature, monster: Creature) {
+    
+    init(player: PlayerProtocol, monster: MonsterProtocol) {
         self.player = player
         self.monster = monster
     }
@@ -24,36 +28,77 @@ class Game {
 
 extension Game {
     
-    func attack(playerAttacks: Bool) -> Bool {
-        var attackSuccess: Bool
-        if playerAttacks {
-            attackSuccess = makeAttack(attacker: player, defender: &monster)
+    func attack(attackRequest: GetGameData.AttackRequest) -> (attackInfo: AttackInfo, AttackResult: AttackResult) {
+        
+        if attackRequest.playerAttacks == true {
+            let attack =  playerAttacking()
+          let attackInfo = (attacker: player.name,
+                          defender: monster.name,
+                          attackPower: player.attackPower,
+                          defensePower: monster.defensePower,
+                          attackModifier: attackModifier)
+          let attackResult = (attackSuccess: attack.success,
+                            damage: attack.damage,
+                            defenderHealth: monster.currentHealth,
+                            gameOver: self.isOver)
+            return (attackInfo, attackResult)
+            
         } else {
-            attackSuccess = makeAttack(attacker: monster, defender: &player)
+            let attack = monsterAttacking()
+            let attackInfo = (attacker: monster.name,
+                          defender: player.name,
+                          attackPower: monster.attackPower,
+                          defensePower: player.defensePower,
+                          attackModifier: attackModifier)
+            let attackResult = (attackSuccess: attack.success,
+                            damage: attack.damage,
+                            defenderHealth: player.currentHealth,
+                            gameOver: self.isOver)
+            
+            return (attackInfo, attackResult)
         }
-        return attackSuccess
+        
+        
     }
     
-    func makeAttack(attacker: Creature, defender: inout Creature) -> Bool {
-        
-        self.attackModifier = getAttackModifier(attacker: attacker, defender: defender)
-        if (throwCubes(cubesCount: attackModifier)) {
-            let damage = UInt8.random(in: 1...attacker.damagePower)
-            if defender.currentHealth > UInt(damage) {
-                defender.currentHealth -= UInt(damage)
+    func playerAttacking() -> (success: Bool, damage: UInt) {
+        var defender = self.monster
+        var damage: UInt = 0
+        self.attackModifier = getAttackModifier(attacker: self.player, defender: defender)
+        if (throwCubes(cubesCount: self.attackModifier)) {
+            damage = UInt.random(in: 1...self.player.damagePower)
+            if defender.currentHealth > damage {
+                defender.currentHealth -= damage
+                if (defender.currentHealth <= defender.maxHealth/2 && defender.healPills > 0) {
+                    defender.healMonster()
+                    
+                }
             } else {
                 defender.currentHealth = 0
                 isOver = true
             }
-
-            if defender is Monster {
-                if (defender.currentHealth <= defender.maxHealth/2 && defender.healPills > 0) {
-                    defender.heal()
-                }
-            }
-          return true
+            return (true, damage)
+            
         } else {
-           return false
+            return (false, damage)
+        }
+    }
+    
+    func monsterAttacking() -> (success: Bool, damage: UInt) {
+        var defender = self.player
+        var damage: UInt = 0
+        self.attackModifier = getAttackModifier(attacker: self.monster, defender: defender)
+        if (throwCubes(cubesCount: self.attackModifier)) {
+            damage = UInt.random(in: 1...self.monster.damagePower)
+            if defender.currentHealth > damage {
+                defender.currentHealth -= damage
+            } else {
+                defender.currentHealth = 0
+                isOver = true
+            }
+            return (true, damage)
+        } else {
+            return (false, damage)
         }
     }
 }

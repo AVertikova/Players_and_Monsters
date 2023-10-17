@@ -7,14 +7,17 @@
 
 import Foundation
 
-final class Player: Creature {
+final class Player: CreaturePropertiesProtocol {
     var name: String
     var maxHealth: UInt
     var currentHealth: UInt
-    var attackPower: UInt8
-    var defensePower: UInt8
-    var damagePower: UInt8
-    var healPills: UInt8
+    var attackPower: UInt
+    var defensePower: UInt
+    var damagePower: UInt
+    var healPills: UInt
+    lazy var healPower: UInt = {
+        UInt(Double(maxHealth * 30 / 100))
+    }()
     var isAlive: Bool {
         get {return currentHealth > 0}
     }
@@ -29,28 +32,48 @@ final class Player: Creature {
         self.healPills = 4
     }
     
+    
+    init(name: String, maxHealth: UInt, attackPower: UInt,  defensePower: UInt, damagePower: UInt) {
+        self.name = name
+        self.maxHealth = maxHealth
+        self.currentHealth = maxHealth
+        if attackPower <= 30 {
+            self.attackPower = attackPower
+        } else {
+            self.attackPower = UInt.random(in: 1...30)
+        }
+        if defensePower <= 30 {
+            self.defensePower = defensePower
+        } else {
+            self.defensePower = UInt.random(in: 1...30)
+        }
+        if damagePower >= 1 && damagePower <= 6 {
+            self.damagePower = damagePower
+        } else {
+            self.damagePower = UInt.random(in: 1...6)
+        }
+        
+        self.healPills = 4
+    }
+    
     convenience init(name: String) {
         self.init()
         self.name = name
     }
     
-//    init(name: String, maxHealth: UInt, attackPower: UInt8,  defensePower: UInt8, damagePower: UInt8) {
-//        self.name = name
-//        self.maxHealth = maxHealth
-//        self.currentHealth = maxHealth
-//        self.attackPower = attackPower
-//        self.defensePower = defensePower
-//        self.damagePower = damagePower
-//        self.healPills = 4
-//    }
-    
-    func heal() {
+}
+
+extension Player: PlayerHealingProtocol {
+    func healPlayer() {
         if isAlive && self.healPills > 0 {
-            currentHealth += UInt(Double(maxHealth)/100*30)
+            currentHealth += healPower
             if currentHealth > maxHealth {
                 currentHealth = maxHealth
             }
             self.healPills -= 1
         }
+            
     }
+
 }
+

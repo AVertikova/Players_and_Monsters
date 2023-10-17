@@ -7,17 +7,22 @@
 
 import Foundation
 
-protocol Creature: Codable {
+protocol CreaturePropertiesProtocol: Codable {
     var name: String {get set}
     var maxHealth: UInt {get set} // 0-N
     var currentHealth: UInt {get set}
-    var attackPower: UInt8 {get set} // 0-30
-    var defensePower: UInt8 {get set} // 0-30
-    var damagePower: UInt8 {get set} // M-N ex 1-6
-    var healPills: UInt8 {get set} // 4
+    var attackPower: UInt {get set} // 0-30
+    var defensePower: UInt  {get set} // 0-30
+    var damagePower: UInt {get set} // M-N ex 1-6
+    var healPills: UInt {get set} // 4
+    var healPower: UInt {get}
     var isAlive: Bool {get}
-    
-    func heal()
 }
 
+protocol MonsterHealingProtocol {
+    func healMonster()
+}
 
+protocol PlayerHealingProtocol {
+    func healPlayer()
+}

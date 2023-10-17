@@ -19,13 +19,12 @@ class GamePresenter: GamePresenterPropertiesProtocol {
 }
 
 extension GamePresenter: GameViewToPresenterRequestProtocol {
-    func healButtonTapped() {
-        interactor?.healButtonTapped()
+    func attackButtonTapped(attackRequest: GetGameData.AttackRequest) {
+        interactor?.attackButtonTapped(attackRequest: attackRequest)
     }
     
-    
-    func attackButtonTapped(playerAttacks: Bool) {
-        interactor?.attackButtonTapped(playerAttacks: playerAttacks)
+    func healButtonTapped() {
+        interactor?.healButtonTapped()
     }
     
     func fetchGame(request: GetGameData.GameInitRequest) {
@@ -37,18 +36,32 @@ extension GamePresenter: GameViewToPresenterRequestProtocol {
 }
 
 extension GamePresenter: GameInteractorToPresenterResponseProtocol {
-    func fetchGameOver(winner: String) {
-        let dataToDisplay: String = """
+    func fetchAttackResult(response: GetGameData.Response) {
+        self.fetchAttackInfo(response: response)
+        if response.gameService?.currentAttackResult?.attackSuccess == true {
+            self.fetchAttackSuccess(response: response)
+            if response.gameService?.currentAttackResult?.gameOver == true {
+                self.fetchGameOver(response: response)
+            }
+        } else {
+            self.fetchAttackFail()
+        }
+    }
+    
+    func fetchGameOver(response: GetGameData.Response) {
+        if let winner = response.gameService?.currentAttackInfo?.attacker {
+            let dataToDisplay: String = """
 
     ==========ИГРА ОКОНЧЕНА!===========
             Победил \(winner).
     
 
 """
-        viewController?.showGameOver(dataToDisplay: dataToDisplay)
+            viewController?.showGameOver(dataToDisplay: dataToDisplay)
+        }
     }
     
-
+    
     
     func fetchHealSuccess(response: GetGameData.Response) {
         var currentHealth: String = ""
@@ -78,47 +91,29 @@ extension GamePresenter: GameInteractorToPresenterResponseProtocol {
     }
     
     
-    func fetchAttackDetails(response: GetGameData.Response, attacker: String) {
+    func fetchAttackInfo(response: GetGameData.Response) {
         var attackerName: String = ""
         var defenderName: String = ""
-        var attackPower: String = ""
-        var defensePower: String = ""
-        var attackModifier: String = ""
+        var attackPower: UInt = 0
+        var defensePower: UInt = 0
+        var attackModifier: UInt = 0
         
-        
-        if attacker == "Player" {
-            if let aName = response.gameService?.getPlayerData().name {
-                attackerName =  "\(aName)"
-            }
-            if let dName = response.gameService?.getMonsterData().name {
-                defenderName =  "\(dName)"
-            }
-            if let attack = response.gameService?.getPlayerData().attackPower {
-                attackPower =  "\(attack)"
-            }
-            if let defense = response.gameService?.getMonsterData().defensePower {
-                defensePower =  "\(defense)"
-            }
-            if let modifier = response.gameService?.getAttackModifier() {
-                attackModifier = "\(modifier)"
-            }
-        } else {
-            if let aName = response.gameService?.getMonsterData().name {
-                attackerName =  "\(aName)"
-            }
-            if let dName = response.gameService?.getPlayerData().name {
-                defenderName =  "\(dName)"
-            }
-            if let attack = response.gameService?.getMonsterData().attackPower {
-                attackPower =  "\(attack)"
-            }
-            if let defense = response.gameService?.getPlayerData().defensePower {
-                defensePower =  "\(defense)"
-            }
-            if let modifier = response.gameService?.getAttackModifier() {
-                attackModifier = "\(modifier)"
-            }
+        if let attacker = response.gameService?.currentAttackInfo?.attacker {
+            attackerName = attacker
         }
+        if let defender = response.gameService?.currentAttackInfo?.defender {
+            defenderName = defender
+        }
+        if let attack = response.gameService?.currentAttackInfo?.attackPower {
+            attackPower = attack
+        }
+        if let deffense = response.gameService?.currentAttackInfo?.defensePower {
+            defensePower = deffense
+        }
+        if let modifier = response.gameService?.currentAttackInfo?.attackModifier {
+            attackModifier = modifier
+        }
+        
         
         let dataToDisplay: String = """
 
@@ -130,67 +125,35 @@ extension GamePresenter: GameInteractorToPresenterResponseProtocol {
         viewController?.showView(dataToDisplay: dataToDisplay)
     }
     
-    func fetchAttackSucces(response: GetGameData.Response, attacker: String, damage: UInt) {
-        var attackerName: String = ""
-        var defenderName: String = ""
-        let damageMade: String = "\(damage)"
-        var defenderHealth: String = ""
-        var dataToDisplay: String = ""
+    func fetchAttackSuccess(response: GetGameData.Response) {
         
-        if damage == 999 {
-            if attacker == "Player" {
-                if let aName = response.gameService?.getPlayerData().name {
-                    attackerName =  "\(aName)"
-                }
-                dataToDisplay = "ИГРА ОКОНЧЕНА! Победил \(attackerName) "
-            } else {
-                if let aName = response.gameService?.getMonsterData().name {
-                    attackerName =  "\(aName)"
-                }
-            }
-            dataToDisplay = "ИГРА ОКОНЧЕНА! Победил \(attackerName) "
-        } else {
-            
-            if attacker == "Player" {
-                if let dName = response.gameService?.getMonsterData().name {
-                    defenderName =  "\(dName)"
-                }
-                if let health = response.gameService?.getMonsterData().health {
-                    defenderHealth = "\(health)"
-                }
-                
-                
-            } else {
-                if let dName = response.gameService?.getPlayerData().name {
-                    defenderName =  "\(dName)"
-                }
-                if let health = response.gameService?.getPlayerData().health {
-                    defenderHealth = "\(health)"
-                }
-                
-            }
-            if damage == 777 {
-                dataToDisplay = """
-       
-        Успешная атака!
-        Но \(defenderName) успел подлечиться.
-        Здоровье \(defenderName): \(defenderHealth).
-    
-    """
-                
-            } else {
-                dataToDisplay = """
-       
-        Успешная атака!
-        \(defenderName) получает \(damageMade) урона.
-        Здоровье \(defenderName): \(defenderHealth).
-    
-    """
-            }
-            viewController?.showView(dataToDisplay: dataToDisplay)
+        var defenderName: String  = ""
+        var damageGained: UInt = 0
+        var currentHealth: UInt = 0
+        
+        if let defender = response.gameService?.currentAttackInfo?.defender {
+            defenderName = defender
         }
-    }
+        
+        if let damage = response.gameService?.currentAttackResult?.damage {
+            damageGained = damage
+        }
+        
+        if let health = response.gameService?.currentAttackResult?.defenderHealth {
+            currentHealth = health
+        }
+        
+        let dataToDisplay: String = """
 
+    Успешная атака!
+    \(defenderName) получает урон \(damageGained).
+    Здоровье \(defenderName): \(currentHealth).
+
+"""
+        viewController?.showView(dataToDisplay: dataToDisplay)
+        
+    }
+    
     
     func fetchAttackFail() {
         let dataToDisplay: String = """
@@ -201,7 +164,7 @@ extension GamePresenter: GameInteractorToPresenterResponseProtocol {
         viewController?.showView(dataToDisplay: dataToDisplay)
     }
     
-    func fetchData(response: GetGameData.Response) {
+    func fetchGameData(response: GetGameData.Response) {
     }
     
     

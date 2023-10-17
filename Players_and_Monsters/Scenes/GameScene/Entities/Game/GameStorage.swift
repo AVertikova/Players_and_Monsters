@@ -7,21 +7,32 @@
 
 import Foundation
 
+//typealias AttackInfo = (playerAttacks: Bool,
+//attackPower: Bool,
+//defensePower: UInt,
+//attackModifier: UInt)
+
+//typealias AttackResult = (playerAttacks: Bool,
+//  attackSuccess: Bool,
+//  damage: UInt,
+//  gameOver: Bool)
+
 enum GetGameData {
-        
-        struct Request {}
-        
-        struct GameInitRequest {
-//            var playerName: String?
-//            var monsterType: String?
-        }
-        
-        struct Response {
-            var gameService: GameService?
-        }
-        
-        struct ViewModel {
-            var gameService: GameService?
-        }
+    
+    struct Request {}
+    
+    struct GameInitRequest {}
+    
+    struct AttackRequest {
+        var playerAttacks: Bool
+    }
+    
+    struct Response {
+        var gameService: GameService?
+    }
+    
+    struct ViewModel {
+        var gameService: GameService?
+    }
     
 }

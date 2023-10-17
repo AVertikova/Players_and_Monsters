@@ -11,7 +11,6 @@ import UIKit
 
 class GameViewController: UIViewController, GameViewPropertiesProtocol {
     var presenter: GameViewToPresenterRequestProtocol?
-    private var playerAttacks: Bool = true
     
     @IBOutlet weak var attackButton: UIButton!
     @IBOutlet weak var healButton: UIButton!
@@ -25,18 +24,11 @@ class GameViewController: UIViewController, GameViewPropertiesProtocol {
     
     
     @IBAction func attackButtonTapped(_ sender: UIButton) {
-            presenter?.attackButtonTapped(playerAttacks: playerAttacks)
-            playerAttacks.toggle()
-        if playerAttacks == false {
-            attackButton.isEnabled = false
-            healButton.isEnabled = false
-            presenter?.attackButtonTapped(playerAttacks: playerAttacks)
-            playerAttacks.toggle()
-            attackButton.isEnabled = true
-            healButton.isEnabled = true
-        }
-        
+        let attackRequest = GetGameData.AttackRequest(playerAttacks: true)
+            presenter?.attackButtonTapped(attackRequest: attackRequest)
     }
+    
+    
     @IBAction func healButtonTapped(_ sender: UIButton) {
         presenter?.healButtonTapped()
     }
