@@ -13,10 +13,10 @@ typealias PlayerProtocol = CreaturePropertiesProtocol&PlayerHealingProtocol
 typealias MonsterProtocol = CreaturePropertiesProtocol&MonsterHealingProtocol
 
 class Game {
-    var player: PlayerProtocol
-    var monster: MonsterProtocol
-    var isOver: Bool = false
-    var attackModifier: UInt = 0
+   private var player: PlayerProtocol
+   private var monster: MonsterProtocol
+   private var isOver: Bool = false
+   private var attackModifier: UInt = 0
     
     
     init(player: PlayerProtocol, monster: MonsterProtocol) {
@@ -40,7 +40,8 @@ extension Game {
           let attackResult = (attackSuccess: attack.success,
                             damage: attack.damage,
                             defenderHealth: monster.currentHealth,
-                            gameOver: self.isOver)
+                            gameOver: self.isOver,
+                            monsterHealed: attack.monsterHealed)
             return (attackInfo, attackResult)
             
         } else {
@@ -53,7 +54,8 @@ extension Game {
             let attackResult = (attackSuccess: attack.success,
                             damage: attack.damage,
                             defenderHealth: player.currentHealth,
-                            gameOver: self.isOver)
+                            gameOver: self.isOver,
+                            monsterHealed: false)
             
             return (attackInfo, attackResult)
         }
@@ -61,9 +63,10 @@ extension Game {
         
     }
     
-    func playerAttacking() -> (success: Bool, damage: UInt) {
+    func playerAttacking() -> (success: Bool, damage: UInt, monsterHealed: Bool) {
         var defender = self.monster
         var damage: UInt = 0
+        var monsterHealed: Bool = false
         self.attackModifier = getAttackModifier(attacker: self.player, defender: defender)
         if (throwCubes(cubesCount: self.attackModifier)) {
             damage = UInt.random(in: 1...self.player.damagePower)
@@ -71,16 +74,16 @@ extension Game {
                 defender.currentHealth -= damage
                 if (defender.currentHealth <= defender.maxHealth/2 && defender.healPills > 0) {
                     defender.healMonster()
-                    
+                    monsterHealed = true
                 }
             } else {
                 defender.currentHealth = 0
                 isOver = true
             }
-            return (true, damage)
+            return (true, damage, monsterHealed )
             
         } else {
-            return (false, damage)
+            return (false, damage, monsterHealed)
         }
     }
     
@@ -100,6 +103,10 @@ extension Game {
         } else {
             return (false, damage)
         }
+    }
+    
+    func healPlayer() -> (healSuccess: Bool, currentHealth: UInt, healPills: UInt) {
+       return self.player.healPlayer()
     }
 }
 

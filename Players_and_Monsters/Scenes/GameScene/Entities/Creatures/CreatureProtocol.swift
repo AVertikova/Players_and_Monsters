@@ -24,5 +24,5 @@ protocol MonsterHealingProtocol {
 }
 
 protocol PlayerHealingProtocol {
-    func healPlayer()
+    func healPlayer() -> (healSuccess: Bool, currentHealth: UInt, healPills: UInt)
 }

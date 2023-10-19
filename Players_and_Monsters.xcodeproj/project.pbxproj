@@ -78,7 +78,7 @@
 		EB9E1D8E2AD3B14D0007E4F2 /* GameInfoStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoStorage.swift; sourceTree = "<group>"; };
 		EB9E1D912AD3B2C30007E4F2 /* HomeDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataStorage.swift; sourceTree = "<group>"; };
 		EBF0B1802AD2DA8300F4A6D4 /* GameInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoViewController.swift; sourceTree = "<group>"; };
-		EBF0B1892AD2DBEE00F4A6D4 /* GameInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameInfoInteractor.swift; path = Players_and_Monsters/Scenes/GameInfoScene/Interactor/GameInfoInteractor.swift; sourceTree = SOURCE_ROOT; };
+		EBF0B1892AD2DBEE00F4A6D4 /* GameInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoInteractor.swift; sourceTree = "<group>"; };
 		EBF0B18B2AD2DBFD00F4A6D4 /* GameInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoPresenter.swift; sourceTree = "<group>"; };
 		EBF0B18D2AD2DC0B00F4A6D4 /* GameInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoRouter.swift; sourceTree = "<group>"; };
 		EBF0B18F2AD2DC2600F4A6D4 /* GameInfoBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoBuilder.swift; sourceTree = "<group>"; };

@@ -36,6 +36,7 @@ extension GamePresenter: GameViewToPresenterRequestProtocol {
 }
 
 extension GamePresenter: GameInteractorToPresenterResponseProtocol {
+    
     func fetchAttackResult(response: GetGameData.Response) {
         self.fetchAttackInfo(response: response)
         if response.gameService?.currentAttackResult?.attackSuccess == true {
@@ -47,49 +48,6 @@ extension GamePresenter: GameInteractorToPresenterResponseProtocol {
             self.fetchAttackFail()
         }
     }
-    
-    func fetchGameOver(response: GetGameData.Response) {
-        if let winner = response.gameService?.currentAttackInfo?.attacker {
-            let dataToDisplay: String = """
-
-    ==========ИГРА ОКОНЧЕНА!===========
-            Победил \(winner).
-    
-
-"""
-            viewController?.showGameOver(dataToDisplay: dataToDisplay)
-        }
-    }
-    
-    
-    
-    func fetchHealSuccess(response: GetGameData.Response) {
-        var currentHealth: String = ""
-        var healPillsRemain: String = ""
-        
-        if let health = response.gameService?.getPlayerData().health {
-            currentHealth =  "\(health)"
-        }
-        
-        if let pills = response.gameService?.getPlayerData().healPills {
-            healPillsRemain = "\(pills)"
-        }
-        
-        let dataToDisplay: String = """
-
-    Так-то лучше!
-    Здоровье: \(currentHealth).
-    Осталось микстур: \(healPillsRemain).
-
-"""
-        viewController?.showView(dataToDisplay: dataToDisplay)
-    }
-    
-    func fetchHealFail(response: GetGameData.Response) {
-        let dataToDisplay: String = "\n\nОй, у тебя нет исцеляющих микстур!\nНо ты держись там!\n\n"
-        viewController?.showNoHealPillsView(dataToDisplay: dataToDisplay)
-    }
-    
     
     func fetchAttackInfo(response: GetGameData.Response) {
         var attackerName: String = ""
@@ -126,7 +84,7 @@ extension GamePresenter: GameInteractorToPresenterResponseProtocol {
     }
     
     func fetchAttackSuccess(response: GetGameData.Response) {
-        
+        var dataToDisplay: String = ""
         var defenderName: String  = ""
         var damageGained: UInt = 0
         var currentHealth: UInt = 0
@@ -142,14 +100,24 @@ extension GamePresenter: GameInteractorToPresenterResponseProtocol {
         if let health = response.gameService?.currentAttackResult?.defenderHealth {
             currentHealth = health
         }
-        
-        let dataToDisplay: String = """
+        if response.gameService?.currentAttackResult?.monsterHealed == true {
+            dataToDisplay = """
+
+    Успешная атака!
+    \(defenderName) получает урон \(damageGained)
+    и принимает исцеляющую микстуру.
+    Здоровье \(defenderName): \(currentHealth).
+
+"""
+        } else {
+            dataToDisplay = """
 
     Успешная атака!
     \(defenderName) получает урон \(damageGained).
     Здоровье \(defenderName): \(currentHealth).
 
 """
+            }
         viewController?.showView(dataToDisplay: dataToDisplay)
         
     }
@@ -164,8 +132,48 @@ extension GamePresenter: GameInteractorToPresenterResponseProtocol {
         viewController?.showView(dataToDisplay: dataToDisplay)
     }
     
-    func fetchGameData(response: GetGameData.Response) {
+    
+    func fetchPlayerHealSuccess(response: GetGameData.Response) {
+        var playerHealPills: UInt = 0
+        var playerCurrentHealth: UInt = 0
+        
+        
+        if let health = response.gameService?.playerHealResult?.currentHealth {
+            playerCurrentHealth = health
+        } 
+        
+        if let healPills = response.gameService?.playerHealResult?.healPills {
+            playerHealPills = healPills
+        }
+        
+        let dataToDisplay: String = """
+
+    М-м-м-микстура! Так-то лучше!
+    Здоровье: \(playerCurrentHealth).
+    Осталось микстур: \(playerHealPills).
+
+"""
+        viewController?.showView(dataToDisplay: dataToDisplay)
     }
     
     
+    func fetchPlayerHealFail() {
+        let dataToDisplay: String = "\n\nОй, у тебя нет исцеляющих микстур!\nНо ты держись там!\n\n"
+        viewController?.showNoHealPillsView(dataToDisplay: dataToDisplay)
+    }
+    
+    
+    func fetchGameOver(response: GetGameData.Response) {
+        if let winner = response.gameService?.currentAttackInfo?.attacker {
+            let dataToDisplay: String = """
+
+    ==========ИГРА ОКОНЧЕНА!===========
+            Победил \(winner).
+    ===================================
+    
+
+"""
+            viewController?.showGameOver(dataToDisplay: dataToDisplay)
+        }
+    }
 }

@@ -46,13 +46,13 @@ protocol GamePresenterToInteractorRequestProtocol: AnyObject {
 }
 
 protocol GameInteractorToPresenterResponseProtocol: AnyObject {
-    func fetchGameData(response: GetGameData.Response)
+//    func fetchGameData(response: GetGameData.Response)
     func fetchAttackResult(response: GetGameData.Response)
     func fetchAttackInfo(response: GetGameData.Response)
     func fetchAttackSuccess(response: GetGameData.Response)
     func fetchAttackFail()
-    func fetchHealSuccess(response: GetGameData.Response)
-    func fetchHealFail(response: GetGameData.Response)
+    func fetchPlayerHealSuccess(response: GetGameData.Response)
+    func fetchPlayerHealFail()
     func fetchGameOver(response: GetGameData.Response)
     
  

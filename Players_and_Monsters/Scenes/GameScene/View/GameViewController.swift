@@ -56,6 +56,8 @@ extension GameViewController: GamePresenterToViewResponseProtocol {
     func showGameOver(dataToDisplay: String) {
         gameProcessTextView.text =
         gameProcessTextView.text + dataToDisplay
+        scrollTextViewToBottom(textView: gameProcessTextView)
+        
         attackButton.isEnabled = false
         healButton.isEnabled = false 
     }

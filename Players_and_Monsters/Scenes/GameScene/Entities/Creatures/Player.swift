@@ -64,13 +64,17 @@ final class Player: CreaturePropertiesProtocol {
 }
 
 extension Player: PlayerHealingProtocol {
-    func healPlayer() {
+    
+    func healPlayer() -> (healSuccess: Bool, currentHealth: UInt, healPills: UInt) {
         if isAlive && self.healPills > 0 {
             currentHealth += healPower
             if currentHealth > maxHealth {
                 currentHealth = maxHealth
             }
             self.healPills -= 1
+            return (healSuccess: true, currentHealth: currentHealth, healPills: healPills)
+        } else {
+            return (healSuccess: false, currentHealth: currentHealth, healPills: healPills)
         }
             
     }
